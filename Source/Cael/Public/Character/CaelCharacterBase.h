@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "CaelCharacterBase.generated.h"
 
-UCLASS()
+UCLASS(Abstract)
 class CAEL_API ACaelCharacterBase : public ACharacter
 {
 	GENERATED_BODY()
@@ -17,13 +17,6 @@ public:
 
 protected:
 	
-	virtual void BeginPlay() override;
-
-public:	
-	
-	virtual void Tick(float DeltaTime) override;
-
-	
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void BeginPlay() override;	
 
 };

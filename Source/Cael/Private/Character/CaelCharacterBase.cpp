@@ -7,7 +7,7 @@
 ACaelCharacterBase::ACaelCharacterBase()
 {
  	
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 }
 
@@ -19,16 +19,5 @@ void ACaelCharacterBase::BeginPlay()
 }
 
 
-void ACaelCharacterBase::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
 
-}
-
-
-void ACaelCharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-}
 
