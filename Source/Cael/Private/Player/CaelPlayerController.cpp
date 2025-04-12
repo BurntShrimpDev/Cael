@@ -22,12 +22,12 @@ void ACaelPlayerController::BeginPlay()
 	check(Subsystem);
 	Subsystem->AddMappingContext(GameplayContext, GameplayContextPriority);
 
-	bShowMouseCursor = true;
+	bShowMouseCursor = false;
 	DefaultMouseCursor = EMouseCursor::Default;
 
-	FInputModeGameAndUI InputModeData;
-	InputModeData.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
-	InputModeData.SetHideCursorDuringCapture(false);
+	FInputModeGameOnly InputModeData;
+	//InputModeData.SetLockMouseToViewportBehavior(EMouseLockMode::LockAlways);
+	//InputModeData.SetHideCursorDuringCapture(true);
 	SetInputMode(InputModeData);
 }
 
@@ -38,6 +38,7 @@ void ACaelPlayerController::SetupInputComponent()
 	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
 
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ACaelPlayerController::Move);
+	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ACaelPlayerController::Look);
 }
 
 void ACaelPlayerController::Move(const FInputActionValue& InputActionValue)
@@ -56,3 +57,13 @@ void ACaelPlayerController::Move(const FInputActionValue& InputActionValue)
 	}
 	
 }
+
+void ACaelPlayerController::Look(const FInputActionValue& InputActionValue)
+{
+	const FVector2d LookAxis = InputActionValue.Get<FVector2D>();
+
+	AddYawInput(LookAxis.X);
+	AddPitchInput(LookAxis.Y);
+	UE_LOG(LogTemp, Warning, TEXT("Look input: X=%f, Y=%f"), LookAxis.X, LookAxis.Y);
+}
+
