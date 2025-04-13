@@ -11,6 +11,11 @@ ACaelCharacterBase::ACaelCharacterBase()
 
 }
 
+UAbilitySystemComponent* ACaelCharacterBase::GetAbilitySystemComponent() const
+{
+	return AbilitySystemComponent;
+}
+
 
 void ACaelCharacterBase::BeginPlay()
 {

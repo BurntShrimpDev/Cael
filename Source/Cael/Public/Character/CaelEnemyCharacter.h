@@ -13,5 +13,7 @@ UCLASS()
 class CAEL_API ACaelEnemyCharacter : public ACaelCharacterBase
 {
 	GENERATED_BODY()
-	
+
+public:
+	ACaelEnemyCharacter();
 };
