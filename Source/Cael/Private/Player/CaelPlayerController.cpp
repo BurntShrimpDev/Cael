@@ -39,6 +39,8 @@ void ACaelPlayerController::SetupInputComponent()
 
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ACaelPlayerController::Move);
 	EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ACaelPlayerController::Look);
+	EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Triggered, this, &ACaelPlayerController::StartAim);
+	EnhancedInputComponent->BindAction(AimAction, ETriggerEvent::Completed, this, &ACaelPlayerController::StopAim);
 }
 
 void ACaelPlayerController::Move(const FInputActionValue& InputActionValue)
@@ -67,3 +69,11 @@ void ACaelPlayerController::Look(const FInputActionValue& InputActionValue)
 	UE_LOG(LogTemp, Warning, TEXT("Look input: X=%f, Y=%f"), LookAxis.X, LookAxis.Y);
 }
 
+ void ACaelPlayerController::StartAim(const FInputActionValue& InputActionValue)
+{
+	
+}
+
+void ACaelPlayerController::StopAim(const FInputActionValue& InputActionValue)
+{
+}

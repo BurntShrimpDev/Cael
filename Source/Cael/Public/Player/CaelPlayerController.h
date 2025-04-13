@@ -51,8 +51,17 @@ private:
 	UPROPERTY(EditAnywhere, Category="Input")
 	TObjectPtr<UInputAction> LookAction;
 
+	UPROPERTY(EditAnywhere, Category="Input")
+	TObjectPtr<UInputAction> AimAction;
+
 	void Move(const FInputActionValue& InputActionValue);
 
 	void Look(const FInputActionValue& InputActionValue);
+
+	void StartAim(const FInputActionValue& InputActionValue);
+
+	void StopAim(const FInputActionValue& InputActionValue);
 };
+
+
 
