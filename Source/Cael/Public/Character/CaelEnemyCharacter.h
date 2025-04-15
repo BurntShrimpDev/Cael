@@ -16,4 +16,7 @@ class CAEL_API ACaelEnemyCharacter : public ACaelCharacterBase
 
 public:
 	ACaelEnemyCharacter();
+
+protected:
+	virtual void BeginPlay() override;
 };

@@ -12,8 +12,10 @@ ACaelPlayerState::ACaelPlayerState()
 
 	AbilitySystemComponent = CreateDefaultSubobject<UCaelAbilitySystemComponent>("AbilitySystemComponent");
 	AbilitySystemComponent->SetIsReplicated(true);
+	AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
 
 	AttributeSet = CreateDefaultSubobject<UCaelAttributeSet>("AttributeSet");
+
 }
 
 UAbilitySystemComponent* ACaelPlayerState::GetAbilitySystemComponent() const

@@ -19,7 +19,8 @@ class CAEL_API ACaelPlayerCharacter : public ACaelCharacterBase
 	public:
 	ACaelPlayerCharacter();
 
-	void SetIsAiming(bool bAiming);
+	virtual void PossessedBy(AController* NewController) override;
+	virtual void OnRep_PlayerState() override;
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
@@ -45,5 +46,7 @@ protected:
 
 private:
 	bool bIsAiming = false;
+
+	void InitAbilityActorInfo();
 	
 };
